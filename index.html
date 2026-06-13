@@ -27,14 +27,70 @@ body{background:linear-gradient(-45deg,#0f172a,#1e293b,#111827,#020617);backgrou
 .btn{text-decoration:none;padding:14px 24px;border-radius:15px;font-weight:700;color:#fff}
 .home{background:#2563eb}
 .print{background:#25d366}
-@media print{
-body{background:#fff!important;color:#000!important}
-.btns{display:none}
-.card{background:#fff!important;color:#000!important;box-shadow:none!important;border:1px solid #ddd!important}
-.section-title{color:#000!important}
+
+/* إعدادات A4 الاحترافية */
+
+@page{
+size:A4;
+margin:12mm;
 }
 
-  .designer-footer{
+@media print{
+a{
+text-decoration:none !important;
+color:#000 !important;
+}
+
+html,body{
+width:210mm;
+background:#fff !important;
+color:#000 !important;
+font-size:12pt;
+}
+
+.btns{
+display:none !important;
+}
+.container{
+max-width:100%;
+}
+
+.hero{
+page-break-after:avoid;
+}
+
+.card{
+page-break-inside:avoid;
+break-inside:avoid;
+margin-bottom:10px;
+padding:20px;
+}
+
+.timeline-item,
+.info-item,
+.list div{
+page-break-inside:avoid;
+break-inside:avoid;
+}
+
+.achievements{
+page-break-before:always;
+break-before:page;
+}
+
+img{
+max-width:100%;
+page-break-inside:avoid;
+}
+}
+
+/* هنا يكمل باقي الكود */
+
+.designer-footer{
+page-break-before:always;
+break-before:page;
+}
+.designer-footer{
 text-align:center;
 margin-top:25px;
 padding:20px;
@@ -53,7 +109,27 @@ transition:.3s;
 .designer-footer a:hover{
 color:#FFD700;
 }
-  
+
+@media print{
+
+.designer-footer{
+margin-top:20px;
+padding-top:15px;
+border-top:1px solid #999;
+color:#000 !important;
+page-break-inside:avoid;
+break-inside:avoid;
+}
+
+.designer-footer a{
+color:#000 !important;
+text-decoration:none;
+}
+.section-title{
+color:#000 !important;
+border-right:4px solid #000;
+}
+}
 </style>
 </head>
 <body>
@@ -74,8 +150,18 @@ color:#FFD700;
 <div class="info-item"><i class="fas fa-user"></i> علي السيد أحمد الغزالي</div>
 <div class="info-item"><i class="fas fa-calendar"></i> 1 سبتمبر 1984</div>
 <div class="info-item"><i class="fas fa-location-dot"></i> المحلة الكبرى</div>
-<div class="info-item"><i class="fas fa-phone"></i> +966 59 507 6560</div>
-<div class="info-item"><i class="fas fa-envelope"></i> ali.jody2000@gmail.com</div>
+<div class="info-item">
+<i class="fas fa-phone"></i>
+<a href="tel:+966595076560" style="color:inherit;text-decoration:none;">
++966 59 507 6560
+</a>
+</div>
+<div class="info-item">
+<i class="fas fa-envelope"></i>
+<a href="mailto:ali.jody2000@gmail.com" style="color:inherit;text-decoration:none;">
+ali.jody2000@gmail.com
+</a>
+</div>
 <div class="info-item"><i class="fab fa-facebook"></i> علي الغزالي</div>
 </div>
 </div>
@@ -106,7 +192,7 @@ color:#FFD700;
 <div>نادي المحلة الكبرى (البلدية).</div>
 </div></div>
 
-<div class="card"><h2 class="section-title">إنجازاتي في مجال التدريب</h2><div class="timeline">
+<div class="card achievements"><h2 class="section-title">إنجازاتي في مجال التدريب</h2><div class="timeline">
 <div class="timeline-item"><h4>2011 / 2012</h4>المركز الثالث في بطولة السفير الكوري.</div>
 <div class="timeline-item"><h4>2012 / 2013</h4>المركز الثاني في بطولة الإسكندريات الدولية.</div>
 <div class="timeline-item"><h4>2013 / 2014</h4>المركز الثاني في بطولة الجمهورية المفتوحة.</div>
@@ -114,9 +200,8 @@ color:#FFD700;
 <div class="timeline-item"><h4>2015 / 2016</h4>المركز الثاني جمهورية رجال - المركز الثالث تصفيات المنتخب - المركز الثالث للبومزا - المركز الثالث تحت 8 سنوات.</div>
 <div class="timeline-item"><h4>2016 / 2017</h4>المركز الرابع جمهورية أندية - الأول منطقة جروجي - الثاني فرع القاهرة - الثاني منطقة بومزا.</div>
 <div class="timeline-item"><h4>2017 / 2018</h4>المركز الثالث في بطولة الجمهورية تحت 10 سنوات.</div>
-<div class="timeline-item"><h4>2019 / 2021</h4>المركز الثاني في بطولة الجمهورية.</div>
+<div class="timeline-item"><h4>2019 / 2021</h4>المركز الثاني في بطولة الجمهورية.</div> 
 </div></div>
-  <div class="designer-footer">
 <div class="designer-footer">
 
 <a href="https://api.whatsapp.com/send?phone=201064654324&text=مرحباً%20المهندس%20حسني%20رشاد،%0Aأرغب%20في%20تصميم%20موقع%20أو%20صفحة%20إلكترونية."
@@ -130,6 +215,10 @@ target="_blank">
 target="_blank">
 📱 🇪🇬 +20 106 465 4324
 </a>
+
 </div>
+
+</div> <!-- إغلاق container -->
+
 </body>
 </html>
